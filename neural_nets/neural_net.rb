@@ -1,5 +1,6 @@
 module NeuralNets
   class NeuralNet
+    include Persistence
     attr_reader :layers
 
     # First element of sizes is the input layer which doesn't have any weights or

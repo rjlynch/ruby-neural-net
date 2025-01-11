@@ -1,4 +1,5 @@
 require "base64"
+require "json"
 require "chunky_png"
 require_relative "activation_function"
 require_relative "example"
@@ -7,6 +8,7 @@ require_relative "neural_nets/bias"
 require_relative "neural_nets/weight"
 require_relative "neural_nets/neurone"
 require_relative "neural_nets/layer"
+require_relative "neural_nets/persistence"
 require_relative "neural_nets/neural_net"
 
 
