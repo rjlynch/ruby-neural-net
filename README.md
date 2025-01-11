@@ -19,7 +19,8 @@ To train the network on the full mnist data set (25 epochs * 60,000 images ==
 1.5M examples) takes a little over 2 hours on my M1 macbook.
 
 If you're playing around with this you may want to limit the
-numbers it learns to recognise by changing the `NUMBERS` array in `main.rb`.
+numbers it learns to recognise by changing the `NUMBERS` array in `test.rb` (or
+`train_and_test.rb`).
 Learning to differentiate between a 0 and a 1 only takes a few minutes.
 
 ![Screenshot 2025-01-10 at 17 56 03](https://github.com/user-attachments/assets/6a4a6db0-4856-423e-b659-eed105651a79)
@@ -36,9 +37,10 @@ Predicting either a 0 or a 1
 * Download the training and test data sets from kaggle
   `https://www.kaggle.com/datasets/hojjatk/mnist-dataset`
   and put them in the `./data` directory
-* Run `bundle exec ruby main.rb` to train and test the network.
+* Run `bundle exec ruby train.rb` to train the network.
+* Run `bundle exec ruby test.rb` to test the network.
 
 ## TODO
 - [x] Print images to the terminal using something like iterm's image escape codes
-- [ ] Store and load weights to / from disk
+- [x] Store and load weights to / from disk
 - [ ] Would love to be able to view the network in graphviz
