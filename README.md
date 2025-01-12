@@ -46,11 +46,14 @@ Predicting either a 0 or a 1
 - [ ] Would love to be able to view the network in graphviz
 
 
-## Graphing the neural net (wip)
+## Visualising the neural net (wip)
 Currently we can see the relative activation of each layer.
+
 TBD - showing the relative weight of each connection (currenly all connections are bright green)
-Neural net below was trained to recognise 3 digits, hence
-having only 3 output neurones.
+
+Neural net below was trained to recognise 3 digits, hence having only 3 output neurones.
+
+Neural net, correctly, recognising the digit 1 (the brightest output neurone).
 ![Screenshot 2025-01-12 at 13 04 29](https://github.com/user-attachments/assets/5c441e47-c6e1-4a32-a274-68cf23e42b87)
-Zoomed in on hidden layers
+Zoomed in on hidden layers (lighter == more activation)
 ![Screenshot 2025-01-12 at 12 51 28](https://github.com/user-attachments/assets/5dd1ca9e-55a9-4542-9f26-e04291f4a8ec)
