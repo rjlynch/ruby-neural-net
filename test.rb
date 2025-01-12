@@ -15,8 +15,10 @@ neural_net = NeuralNets::NeuralNet.load
 
 # How many numbers the neural net was trained to recognize
 # Set the NUMBERS constant in train.rb to change how many digits the neural net
-# is trained to recognize. You may want to set this to [0, 1] for quick testing
-numbers = neural_net.layers.last.neurones.size.times.to_a
+# is trained to recognize. You may want to set this to [0, 1] for quick
+# testing.
+# Make sure to set this to the same value as `NUMBERS` in train.rb!
+NUMBERS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 test_examples = DataLoader.images_with_labels(
   images_path: "data/t10k-images.idx3-ubyte",
@@ -24,12 +26,12 @@ test_examples = DataLoader.images_with_labels(
 )
 
 # Select examples that the neural net was trained to recognize
-test_examples = test_examples.select { |e| numbers.include? e.label }
+test_examples = test_examples.select { |e| NUMBERS.include? e.label }
 
 # Testing loop
 correct = 0
 
-puts "Testing neural net trained to recognize digits #{numbers.join(", ")}"
+puts "Testing neural net trained to recognize digits #{NUMBERS.join(", ")}"
 
 test_examples_size = test_examples.size
 
