@@ -48,7 +48,7 @@ Predicting either a 0 or a 1
 
 ## Graphing the neural net (wip)
 Currently we can see the relative activation of each layer.
-Working on showing the relative weight of each connection.
+TBD - showing the relative weight of each connection (currenly all connections are bright green)
 Neural net below was trained to recognise 3 digits, hence
 having only 3 output neurones.
 ![Screenshot 2025-01-12 at 13 04 29](https://github.com/user-attachments/assets/5c441e47-c6e1-4a32-a274-68cf23e42b87)
