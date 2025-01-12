@@ -44,3 +44,12 @@ Predicting either a 0 or a 1
 - [x] Print images to the terminal using something like iterm's image escape codes
 - [x] Store and load weights to / from disk
 - [ ] Would love to be able to view the network in graphviz
+
+
+## Graphing the neural net (wip)
+Currently we can see the relative activation of each layer.
+Working on showing the relative weight of each connection.
+Neural net below was trained to recognise 3 digits, hence
+having only 3 output neurones.
+![Screenshot 2025-01-12 at 13 04 29](https://github.com/user-attachments/assets/5c441e47-c6e1-4a32-a274-68cf23e42b87)
+![Screenshot 2025-01-12 at 12 51 28](https://github.com/user-attachments/assets/5dd1ca9e-55a9-4542-9f26-e04291f4a8ec)
