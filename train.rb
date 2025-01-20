@@ -10,6 +10,7 @@ require_relative "neural_nets/neurone"
 require_relative "neural_nets/layer"
 require_relative "neural_nets/persistence"
 require_relative "neural_nets/neural_net"
+require_relative "logging"
 
 # Subset of mnist digits to learn to recognize
 NUMBERS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -37,34 +38,16 @@ trainning_examples = trainning_examples.select { |e| NUMBERS.include? e.label }
 puts "Training neural net to recognize digits #{NUMBERS.join(", ")}"
 
 # Training loop
-EPOCS.times do |epoc|
-  epoc = epoc + 1
+EPOCS.times.with_index do |epoc, ei|
   trainning_examples.shuffle.each_slice(BATCH_SIZE).each_with_index do |batch, bi|
-    batch_no = bi + 1
-
-    correct = 0
-
-    batch.each_with_index do |example, index|
-      index = index + 1
+    batch.each_with_index do |example, i|
       input = example.image_bytes
+
       target = Array.new(NUMBERS.size) { 0 }.tap { |a| a[example.label] = 1 }
+
       prediction = neural_net.train(x: input, y: target)
 
-      correct += 1 if prediction == example.label
-
-      if correct == 0
-        accuracy = 0
-      else
-        accuracy = ((correct.to_f / index) * 100).round(2)
-      end
-
-      percentage_complete = ((index.to_f / batch.size.to_f) * 100).round(2)
-
-      print \
-        "\e[2K\r " \
-        "epoch #{epoc} batch #{batch_no} | " \
-        "training #{percentage_complete}% complete | " \
-        "accuracy: #{accuracy}%"
+      log(ei, bi, BATCH_SIZE, i, example.label, prediction)
     end
 
     # Update the weights and biases after each batch
