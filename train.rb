@@ -45,7 +45,9 @@ EPOCS.times.with_index do |epoc, ei|
 
       target = Array.new(NUMBERS.size) { 0 }.tap { |a| a[example.label] = 1 }
 
-      prediction = neural_net.train(x: input, y: target)
+      neural_net.train(x: input, y: target)
+
+      prediction = neural_net.prediction
 
       log(ei, bi, BATCH_SIZE, i, example.label, prediction)
     end

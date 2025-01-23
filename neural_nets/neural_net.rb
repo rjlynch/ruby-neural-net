@@ -14,13 +14,17 @@ module NeuralNets
     end
 
     def predict(x)
-      prediction(feed_forward(x))
+      feed_forward(x)
+      prediction
+    end
+
+    def prediction
+      output_layer.neurones.index(output_layer.neurones.max_by(&:activation))
     end
 
     def train(x:, y:)
-      activation = feed_forward(x)
+      feed_forward(x)
       back_propagate(y)
-      prediction(activation)
     end
 
     def learn!(learning_rate)
@@ -32,10 +36,6 @@ module NeuralNets
     end
 
     private
-
-    def prediction(activation)
-      activation.index(activation.max)
-    end
 
     def output_layer
       @layers.last
